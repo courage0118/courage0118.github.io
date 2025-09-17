@@ -7,26 +7,29 @@ categories: 技术分享
 
 # 为什么要用Ubuntu
 
+在进入研究生阶段进行科研探索时，我发现很多工作团队都在使用Ubuntu进行个人工作处理与团队协作，便对此产生了很大兴趣。我了解到用Ubuntu开展工作流，非常有优势的一点在于可以随时随地用PC远程连接到ubuntu服务器，即使个人笔记本电脑因为一些原因（换一个地方工作，临时有其他事情，需要关闭电脑，电量不足）合上了，远程服务器还可以继续运行代码，遇到工作量比较大需要长时间计算或优化求解的项目，就可以很方便释放掉手上电脑的状态模式，工作效率的稳定性非常不错。结合git进行项目管理时，多个端可以同步当前的版本，同时备份各个版本的工作，在任意一台电脑上可以继续手上的团队项目，用当前PC上的软件进行数据处理，计算优化、分析和可视化，遇到一些无法修复的问题或者版本冲突还可以回退到原先的某个版本，可以让庞大而繁琐的工程项目管理变得灵活有趣。
+
+
+所以我也选择了Ubuntu作为我的科研工作流的操作系统。
+
 在科研工作中，选择合适的操作系统对提高工作效率至关重要。Ubuntu作为最受欢迎的Linux发行版之一，在科研环境中具有很多显著优势：
 
-## 强大的包管理系统
+### 强大的包管理系统
 - **APT包管理器**：通过`apt`命令轻松安装、更新和卸载软件
-- **依赖关系自动处理**：自动解决软件包之间的依赖关系
 - **丰富的软件仓库**：Ubuntu官方仓库和第三方PPA包含了丰富的科研工具生态
-
-
-## 科研工具生态完善
+ 
+### 科研工具生态完善
 - **编程环境**：原生支持Python、R、C++、Java等多种编程语言
 - **数据分析工具**：Jupyter Notebook、RStudio、MATLAB等
 - **机器学习框架**：TensorFlow、PyTorch、Scikit-learn等
 - **版本控制**：Git、SVN等版本控制工具
 
-## 系统稳定性和安全性
+### 系统稳定性和安全性
 - **长期支持版本(LTS)**：提供5年的安全更新和维护
 - **系统稳定**：适合长时间运行的科研计算任务
 - **安全性高**：内置防火墙和权限管理系统
 
-## 开源免费
+### 开源免费
 - **零成本使用**：Ubuntu完全免费，无需购买昂贵的商业软件许可证
 - **源码开放**：可以查看和修改系统源码，满足特殊需求
 - **社区支持**：庞大的开源社区提供持续的技术支持和更新
@@ -59,7 +62,7 @@ mv old_name new_name
 rm filename
 ```
 
-### 系统信息查看
+#### 系统信息查看
 ```bash
 # 查看系统版本
 lsb_release -a
@@ -77,9 +80,9 @@ lscpu
 top
 ```
 
-## 软件包管理
+### 软件包管理
 
-### 使用APT包管理器
+#### 使用APT包管理器
 ```bash
 # 更新软件包列表
 sudo apt update
@@ -100,7 +103,7 @@ sudo apt remove package_name
 sudo apt autoremove
 ```
 
-### 常用科研软件安装
+#### 常用科研软件安装
 ```bash
 # 安装Python开发环境
 sudo apt install python3 python3-pip python3-venv
@@ -118,9 +121,9 @@ sudo apt install build-essential
 sudo apt install r-base r-base-dev
 ```
 
-## 环境配置
+### 环境配置
 
-### Python虚拟环境
+#### Python虚拟环境
 ```bash
 # 创建虚拟环境
 python3 -m venv myenv
@@ -135,7 +138,7 @@ pip install numpy pandas matplotlib
 deactivate
 ```
 
-### 配置SSH
+#### 配置SSH
 ```bash
 # 生成SSH密钥
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -147,9 +150,9 @@ sudo systemctl enable ssh
 
 # Ubuntu网络配置
 
-## 基本网络设置
+### 基本网络设置
 
-### 查看网络状态
+#### 查看网络状态
 ```bash
 # 查看网络接口
 ip addr show
@@ -164,7 +167,7 @@ ping google.com
 cat /etc/resolv.conf
 ```
 
-### 静态IP配置
+#### 静态IP配置
 使用Netplan配置网络（Ubuntu 18.04+）：
 
 ```yaml
@@ -187,9 +190,9 @@ network:
 sudo netplan apply
 ```
 
-## 远程访问配置
+### 远程访问配置
 
-### SSH远程登录
+#### SSH远程登录
 ```bash
 # 安装OpenSSH服务器
 sudo apt install openssh-server
@@ -204,7 +207,7 @@ sudo systemctl restart ssh
 ssh username@server_ip
 ```
 
-### VNC远程桌面
+#### VNC远程桌面
 ```bash
 # 安装VNC服务器
 sudo apt install tightvncserver
@@ -219,7 +222,7 @@ vncpasswd
 nano ~/.vnc/xstartup
 ```
 
-### 防火墙配置
+#### 防火墙配置
 ```bash
 # 启用UFW防火墙
 sudo ufw enable
@@ -236,9 +239,9 @@ sudo ufw status
 
 # Ubuntu工作流模式
 
-## 科研项目组织结构
+### 科研项目组织结构
 
-### 推荐的目录结构
+#### 推荐的目录结构
 ```
 ~/Research/
 ├── Projects/
@@ -254,7 +257,7 @@ sudo ufw status
 └── Backup/
 ```
 
-### 项目管理最佳实践
+#### 项目管理最佳实践
 ```bash
 # 为每个项目创建独立的虚拟环境
 cd ~/Research/Projects/Project_A
@@ -270,15 +273,15 @@ git add .
 git commit -m "Initial commit"
 ```
 
-## 数据处理工作流
+### 数据处理工作流
 
-### 数据预处理流程
+#### 数据预处理流程
 1. **数据收集**：从各种来源收集原始数据
 2. **数据清洗**：处理缺失值、异常值和重复数据
 3. **数据转换**：格式转换和特征工程
 4. **数据验证**：确保数据质量和一致性
 
-### 常用数据处理工具
+#### 常用数据处理工具
 ```bash
 # 安装数据科学工具包
 pip install pandas numpy scipy matplotlib seaborn
@@ -289,9 +292,9 @@ pip install scikit-learn
 jupyter notebook
 ```
 
-## 实验管理
+### 实验管理
 
-### 实验记录系统
+#### 实验记录系统
 ```python
 # 实验配置管理示例
 import json
@@ -314,7 +317,7 @@ with open("experiment_config.json", "w") as f:
     json.dump(experiment_config, f, indent=2)
 ```
 
-### 结果可重现性
+#### 结果可重现性
 ```bash
 # 使用Docker确保环境一致性
 docker build -t my-research-env .
@@ -327,9 +330,9 @@ git tag -a v1.0 -m "First stable version"
 git push origin v1.0
 ```
 
-## 自动化脚本
+### 自动化脚本
 
-### 批处理脚本示例
+#### 批处理脚本示例
 ```bash
 #!/bin/bash
 # run_experiments.sh
@@ -352,7 +355,7 @@ done
 python generate_report.py
 ```
 
-### 定时任务设置
+#### 定时任务设置
 ```bash
 # 编辑crontab
 crontab -e
@@ -366,26 +369,26 @@ crontab -e
 
 # 后续计划
 
-## 进阶学习方向
+### 进阶学习方向
 
-### 系统管理深入
+#### 系统管理深入
 - **服务器管理**：学习systemd服务管理、日志分析
 - **性能优化**：系统监控、资源调优
 - **安全加固**：权限管理、安全审计
 
-### 容器化技术
+#### 容器化技术
 - **Docker**：容器化应用部署
 - **Kubernetes**：大规模容器编排
 - **Singularity**：HPC环境下的容器技术
 
-### 高性能计算(HPC)
+#### 高性能计算(HPC)
 - **并行计算**：MPI、OpenMP编程
 - **GPU计算**：CUDA、OpenCL
 - **集群管理**：Slurm、PBS作业调度系统
 
-## 工具链优化
+### 工具链优化
 
-### 开发环境增强
+#### 开发环境增强
 ```bash
 # 安装现代化的命令行工具
 sudo apt install zsh
@@ -398,7 +401,7 @@ sudo apt install ranger
 sudo snap install code --classic
 ```
 
-### 监控和日志
+#### 监控和日志
 ```bash
 # 安装系统监控工具
 sudo apt install htop iotop nethogs
@@ -407,7 +410,7 @@ sudo apt install htop iotop nethogs
 sudo nano /etc/logrotate.d/research-logs
 ```
 
-### 备份策略
+#### 备份策略
 ```bash
 # 使用rsync进行增量备份
 rsync -av --delete ~/Research/ /backup/Research/
@@ -416,19 +419,19 @@ rsync -av --delete ~/Research/ /backup/Research/
 tar -czf research_backup_$(date +%Y%m%d).tar.gz ~/Research/
 ```
 
-## 学习资源推荐
+### 学习资源推荐
 
-### 在线文档和教程
+#### 在线文档和教程
 - Ubuntu官方文档：https://ubuntu.com/server/docs
 - Linux命令行教程：https://linuxcommand.org/
 - Shell脚本编程指南：https://www.shellscript.sh/
 
-### 书籍推荐
+#### 书籍推荐
 - 《鸟哥的Linux私房菜》
 - 《Linux系统管理技术手册》
 - 《高性能Linux服务器构建实战》
 
-### 社区资源
+#### 社区资源
 - Ask Ubuntu：https://askubuntu.com/
 - Ubuntu中文论坛：https://forum.ubuntu.org.cn/
 - Stack Overflow：https://stackoverflow.com/
